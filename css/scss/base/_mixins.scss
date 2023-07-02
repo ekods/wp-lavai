@@ -1,0 +1,252 @@
+// default transisi
+@mixin base_transition($t) {
+  -webkit-transition: $t .2s ease;
+  -moz-transition: $t .2s ease;
+  -ms-transition: $t .2s ease;
+  -o-transition: $t .2s ease;
+  transition: $t .2s ease;
+}
+@mixin transition($t) {
+  -webkit-transition: $t .2s ease;
+  -moz-transition: $t .2s ease;
+  -ms-transition: $t .2s ease;
+  -o-transition: $t .2s ease;
+  transition: $t .2s ease;
+}
+
+// border radius
+@mixin border_radius($x) {
+  -webkit-border-radius: $x;
+  -moz-border-radius: $x;
+  -ms-border-radius: $x;
+  -o-border-radius: $x;
+  border-radius: $x;
+}
+
+// transform
+@mixin transform($x) {
+  -ms-transform: ($x);
+  /* IE 9 */
+  -webkit-transform: ($x);
+  /* Safari */
+  transform: ($x);
+}
+
+// rotate
+@mixin base_rotate($x) {
+  -ms-transform: rotate($x);
+  /* IE 9 */
+  -webkit-transform: rotate($x);
+  /* Safari */
+  transform: rotate($x);
+}
+
+// reset style ul
+@mixin reset_ul {
+  margin: 0;
+  padding: 0;
+}
+
+// 100%
+@mixin display_full {
+  width: 100%;
+  height: 100%;
+}
+
+//box-shadow
+@mixin box_shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow: inset $top $left $blur $color;
+    -moz-box-shadow: inset $top $left $blur $color;
+    box-shadow: inset $top $left $blur $color;
+  }
+
+  @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+//flex
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin display-flex() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin display_flex_wrap {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+@mixin text-stroke {
+  text-stroke: 2px var(--grey-dark);
+  -webkit-text-stroke: 2px var(--grey-dark);
+}
+
+@mixin text-stroke_blue {
+  text-stroke: 2px var(--blue);
+  -webkit-text-stroke: 2px var(--blue);
+}
+
+@mixin text-stroke_sm {
+  text-stroke: 1px var(--grey-dark);
+  -webkit-text-stroke: 1px var(--grey-dark);
+}
+
+@mixin text-stroke_sm_blue {
+  text-stroke: 1px var(--blue);
+  -webkit-text-stroke: 1px var(--blue);
+}
+
+//img tbumb
+@mixin img_object { 
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+@mixin ellipsis-multiline($font-size, $line-height, $lines-to-show, $margin:"0") {
+  $height-calc: $font-size*$line-height*$lines-to-show;
+  display: block;
+  display: -webkit-box;
+  font-size: $font-size*1px;
+  line-height: $line-height;
+  max-height: ($height-calc + $margin)*1px;
+  overflow: hidden;
+  position: relative;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: $lines-to-show;
+  // eslint-disable-next-line
+  /* autoprefixer: off */
+  -webkit-box-orient: vertical;
+  /* autoprefixer: on */
+}
+
+// untuk overflow judul pada list berita
+@mixin title_overflow($height, $max-height) {
+  height: $height;
+  max-height: $max-height;
+  overflow: hidden;
+}
+
+// media
+@mixin max-responsive ($media) {
+  @media (max-width: $media) {
+    @content;
+  }
+}
+
+@mixin min-responsive ($media) {
+  @media (min-width: $media) {
+    @content;
+  }
+}
+
+@mixin max-height ($media) {
+  @media (max-height: $media) {
+    @content;
+  }
+}
+
+@mixin range-responsive ($media, $media2) {
+  @media (min-width: $media) and (max-width: $media2) {
+    @content;
+  }
+}
+
+// prefix declarations
+@mixin prefixed($property, $value) {
+  @if $webkit==true {
+    -webkit-#{$property}: #{$value};
+  }
+
+  @if $moz==true {
+    -moz-#{$property}: #{$value};
+  }
+
+  @if $ms==true {
+    -ms-#{$property}: #{$value};
+  }
+
+  @if $o==true {
+    -o-#{$property}: #{$value};
+  }
+
+  #{$property}: #{$value};
+}
+
+// prefix keyframes
+@mixin keyframes($name) {
+  @if $webkit==true {
+    @-webkit-keyframes #{$name} {
+      @content;
+    }
+  }
+
+  @if $moz==true {
+    @-moz-keyframes #{$name} {
+      @content;
+    }
+  }
+
+  @if $ms==true {
+    @-ms-keyframes #{$name} {
+      @content;
+    }
+  }
+
+  @if $o==true {
+    @-o-keyframes #{$name} {
+      @content;
+    }
+  }
+
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+// font template
+@mixin font-pack($family: false, $size: false, $weight: false, $lh: false, $colour: false) {
+  @if $family {
+    font-family: $family;
+  }
+
+  @if $size {
+    font-size: $size;
+  }
+
+  @if $weight {
+    font-weight: $weight;
+  }
+
+  @if $lh {
+    line-height: $lh;
+  }
+
+  @if $colour {
+    color: $colour;
+  }
+}

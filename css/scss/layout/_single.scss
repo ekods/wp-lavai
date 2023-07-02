@@ -1,0 +1,140 @@
+.single {
+
+  &-post {
+    .heroTitle {
+      display: none;
+    }
+  }
+
+  &Wrap {
+    padding: 50px 0;
+  }
+
+
+  &Professionals {
+    position: relative;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #C1C1C1;;
+
+    &-wrap {
+      --gap: 50px;
+      @include display-flex();
+      gap: var(--gap);
+      flex-wrap: wrap;
+    }
+
+    &-col {
+      &1 {
+        width: 340px;
+
+        @media (max-width: $mdtablet) {
+          width: 240px;
+        }
+
+        @media (max-width: $mstablet) {
+          width: 100%;
+        }
+      }
+
+      &2 {
+        width: calc(100% - 340px - 240px - (var(--gap) * 2));
+
+        @media (max-width: $mxtablet_2) {
+          width: calc(100% - 340px - (var(--gap)));
+        }
+
+        @media (max-width: $mdtablet) {
+          width: calc(100% - 240px - (var(--gap)));
+        }
+
+        @media (max-width: $mstablet) {
+          width: 100%;
+        }
+      }
+
+      &3 {
+        width: 240px;
+
+        @media (max-width: $mxtablet_2) {
+          width: 100%;
+        }
+      }
+    }
+
+    &-title {
+      padding: 20px 0 25px;
+      position: relative;
+
+      h2 {
+        font-weight: $font-weight-extrabold;
+        color: var(--blue);
+      }
+      
+      .professionalsItem-type {
+        h5 {
+          color: var(--blue-soft);
+        }
+      }
+
+      &::after {
+        content: '';
+        width: 35px;
+        height: 4px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(90deg, #052147 50%, #0D54B5 60.47%);
+      }
+    }
+
+    &-detail {
+      &.--connect {
+        .dflex {
+          gap: 26px;
+
+          a {
+            @include display-flex();
+            align-items: center;
+            gap: 8px;
+            color: var(--blue-soft);
+
+            &:hover {
+              color: var(--blue);
+            }
+          }
+        }
+      }
+    }
+
+    .--contentSpeaking_engagements,
+    .--contentPublications {
+      padding-top: 40px;
+      border-top: 1px solid #B4BCC8;
+      .content-body {
+        ul {
+          li {
+            position: relative;
+            padding-left: 0;
+            
+            &:not(:last-child) {
+              margin-bottom: 16px;
+            }
+
+
+            &:before {
+              content: '';
+              position: absolute;
+              left: 0;
+              top: 8px;
+              width: 6px;
+              height: 6px;
+              border-radius: 100%;
+              background-color: var(--blue-soft);
+            }
+          }
+        }
+      }
+    }
+
+  }
+}

@@ -1,0 +1,74 @@
+:root {
+  --black                 : #434343;
+  --blue                  : #0D54B5;
+  --blue-soft             : #374D6C;
+  --blue-dark             : #031124;
+  --green                 : #7ac143;
+  --grey                  : #C2C2C2;
+  --grey-1                : #DFE3E8;
+  --grey-dark             : #808080;
+  --white                 : #fff;
+  --gold                  : #ECC971;
+  --orange                : #EE8C10;
+  --navy                  : #403D4A;
+
+  --cream                 : #f5f4ef;
+
+  --primary               : #052147;
+  --secondary             : #093B7F;
+
+  --sapphire              : #052248;
+  --dark-Charcoal         : #181818;
+
+  --blue-gradient         : linear-gradient(90deg, #74EFF3 87.44%, #FFFFFF 100%);
+
+  --img-dark              : 0;
+  --img-light             : 1;
+}
+
+$color-theme: var(--primary);
+$bg_base: #F3EBBE;
+
+$font_body: 'BasicCommercial-LT-Roman', sans-serif;
+$font_body2: 'BasicCommercialLT', sans-serif;
+$CanelaTextTrial: 'CanelaText-Trial', sans-serif;
+$LexendZetta: 'LexendZetta', sans-serif;
+
+
+
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-semi_bold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+
+
+
+//** Number of columns in the grid.
+$grid-columns:              10 !default;
+$grid-columns-9:            9 !default;
+//** Padding between columns. Gets divided in half for the left and right.
+$grid-gutter-width:         30px !default;
+$grid-gutter-width-edge:    15px !default;
+
+
+$grid_desktop: 680px;
+$grid_desktop_large: 900px;
+$screen-lg-min: 900px;
+$grid_mobile: 100%;
+$size_small: 12.32px;
+
+$smobile: 320px; 
+
+$mxtablet_2: 1063px;
+
+// BREAK
+$mxdesktop: 1110px;
+$msdesktop: 1280px;
+
+$mstablet: 480px; 
+$mntablet: 767px; 
+$mdtablet: 990px; 
+$mxtablet: 1024px;
+$mztablet: 1440px;
+$mytablet: 1920px;

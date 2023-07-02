@@ -1,0 +1,200 @@
+.slider {
+
+  &Newsroom {
+    overflow: unset;
+    margin: 28px 0 65px 0;
+    padding-bottom: 75px;
+
+    .swiper {
+
+      &-more {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+
+        @media (max-width: $grid_desktop) {
+          left: 0;
+          margin: auto;
+          text-align: center;
+          bottom: -40px;
+        }
+
+        a {
+          @include font-pack($lh: 1.6, $size: 18px, $colour: var(--blue));
+
+          position: relative;
+          padding-right: 48px;
+  
+          &::after {
+            background-image: url("data:image/svg+xml,%3Csvg width='25' height='24' viewBox='0 0 25 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.0142 17L11.1235 16.125L14.6235 12.625H7.01416V11.375H14.6235L11.1235 7.875L12.0142 7L17.0142 12L12.0142 17Z' fill='%230D54B5'/%3E%3Crect x='0.51416' y='0.5' width='23' height='23' rx='11.5' stroke='%230D54B5'/%3E%3C/svg%3E%0A");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: auto 24px;
+            position: absolute;
+            content: '';
+            width: 25px;
+            height: 25px;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+          }
+        }
+      }
+
+      &-slide {
+        height: 100%;
+      }
+
+      &-nav {
+        position: absolute;
+        width: 100%;
+        max-width: 105px;
+        top: -45px;
+        right: -10px;
+
+        @media (max-width: $mstablet) {
+          max-width: 90px;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+          width: 35px;
+          height: 35px;
+          background-color: var(--white);
+          color: var(--blue);
+          border-radius: 100%;
+          box-shadow: 2px 1px 5px 0px rgba(0,0,0,0.34);
+          -webkit-box-shadow: 2px 1px 5px 0px rgba(0,0,0,0.34);
+          -moz-box-shadow: 2px 1px 5px 0px rgba(0,0,0,0.34);
+
+          @media (max-width: $mstablet) {
+            width: 25px;
+            height: 25px;
+          }
+
+          &::after {
+            font-size: 18px;
+
+            @media (max-width: $mstablet) {
+              font-size: 14px;
+            }
+          }
+        }
+
+        .swiper-button-next {
+          background-color: var(--blue);
+          color: var(--white);
+        }
+      }
+
+      &-pagination {
+        position: absolute;
+        width: 100%;
+        max-width: 200px;
+        text-align: right;
+        @include display-flex();
+        bottom: 12px;
+        top: unset;
+
+        @media (max-width: $grid_desktop) {
+          left: 0;
+          margin: auto;
+          right: 0;
+          text-align: center;
+        }
+
+        .swiper-pagination-bullet {
+          width: 100%;
+          flex: 1;
+          height: 5px;
+          background-color: #5687CB;
+          opacity: 1;
+          border-radius: 0;
+
+
+          &-active {
+            background-color: var(--blue);
+          }
+        }
+      }
+    }
+  }
+
+
+  &Testimonials {
+    .swiper {
+      &-pagination {
+        position: relative;
+        margin-top: 40px;
+        width: 100%;
+        max-width: 200px;
+        text-align: right;
+        @include display-flex();
+
+        @media (max-width: $grid_desktop) {
+          left: 0;
+          margin: auto;
+          right: 0;
+          text-align: center;
+        }
+
+        .swiper-pagination-bullet {
+          width: 100%;
+          max-width: 40px;
+          flex: 1;
+          height: 5px;
+          background-color: #5687CB;
+          opacity: 1;
+          border-radius: 0;
+
+
+          &-active {
+            background-color: var(--blue);
+          }
+        }
+      }
+    }
+  }
+
+  &Professionals {
+    padding-top: 32px;
+    padding-bottom: 30px;
+    position: relative;
+  }
+
+  &Post,
+  &Practiceareas {
+    &-side{
+      .swiper {
+        &-wrapper {
+          // flex-direction: column;
+          // @media (max-width: $mntablet) {
+          //   flex-direction: unset;
+          // }
+        }
+      }
+    }
+  }
+}
+
+.thumb {
+  &-sq {
+    position: relative;
+    overflow: hidden;
+    padding-top: 100%;
+    width: 100%;
+    background-color: var(--grey);
+
+    img {
+      position: absolute;
+      object-fit: cover;
+      object-position: center;
+
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+    }
+  }
+}

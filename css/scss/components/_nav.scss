@@ -1,0 +1,375 @@
+html.menu-active {
+  overflow: hidden;
+}
+
+
+.nav {
+
+  &Search {
+    a {
+      width: 20px;
+      height: 20px;
+      @include display-flex();
+      align-items: center;
+      justify-content: center;
+    }
+  } 
+
+  &Offcanvas {
+    padding-right: 30px;
+
+    @include max-responsive($mntablet) {
+      padding-right: 0;
+      height: 100vh;
+      overflow: scroll;
+      padding-bottom: 100px;
+    }
+  
+    .menuNav-box {
+      text-align: center;
+    }
+
+    .brandLogo {
+      max-width: 150px;
+      margin: 0 auto;
+    }
+
+    .menu {
+      margin-top: 70px;
+      @include display-flex();
+      flex-direction: column;
+      gap: 30px;
+
+      .sub-menu {
+        margin-top: 10px;
+        li {
+          margin: 5px 0;
+
+          a {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    .switcher {
+      margin-top: 40px;
+      ul {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+
+/* OVERLAY */
+.overlay {
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 110vh;
+  visibility: hidden;
+  opacity: 0;
+  @include transition(all 0.4s ease-in-out);
+
+  &.overlay-active {
+    visibility: visible;
+    opacity: 1;
+    background-color: rgba($color: #0D54B5, $alpha: .2);
+  }
+
+  #hamburger-menu-2 {
+    position: absolute;
+    right: 45px;
+    top: 0;
+
+    @include max-responsive($mxtablet) {
+      right: 15px;
+    }
+  }
+
+
+  &-slide {
+    &-left {
+      @include transition(all 0.4s ease-in-out);
+      top: -30px;
+      z-index: 9999;
+      height: 100%;
+      background-color: var(--white);
+      padding: 38px 0;
+      position: relative;
+
+      @include max-responsive($mntablet) {
+        top: 0px;
+        padding: 26px 0 100px;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      .overlay-active & {
+        top: 0;
+      }
+
+      nav {
+        overflow-y: auto;
+        height: 100%;
+
+        li {
+          a {
+            padding: 13px 0;
+          }
+        }
+      }
+    }
+  }
+
+
+  &-active {
+    nav {
+      ul {
+        transition: all 0.4s ease-in-out;
+        li {
+          
+          .nav-menu-sub {
+            display: none;
+          }
+
+          .nav-w-icon {
+            img {
+              filter: invert(99%) sepia(36%) saturate(2%) hue-rotate(70deg) brightness(109%) contrast(100%);
+            }
+          }
+
+          &.navsub {
+            &.openSub {
+              .nav-menu-sub {
+                padding-top: 0;
+                padding-left: 30px;
+                display: block;
+              }
+            }
+          }
+          
+          &.current-menu-item {
+           a {
+            color: var(--blue);
+            padding-left: 20px;
+           } 
+          }
+
+
+          &:nth-child(1) {
+            animation: slide-in 0.4s linear 0.2s both;
+          }
+          &:nth-child(2) {
+            animation: slide-in 0.4s linear 0.4s both;
+          }
+          &:nth-child(3) {
+            animation: slide-in 0.4s linear 0.6s both;
+          }
+          &:nth-child(4) {
+            animation: slide-in 0.4s linear 0.8s both;
+          }
+          &:nth-child(5) {
+            animation: slide-in 0.4s linear 1s both;
+          }
+          &:nth-child(6) {
+            animation: slide-in 0.4s linear 1.2s both;
+          }
+          &:nth-child(7) {
+            animation: slide-in 0.4s linear 1.4s both;
+          }
+          &:nth-child(8) {
+            animation: slide-in 0.4s linear 1.6s both;
+          }
+          &:nth-child(9) {
+            animation: slide-in 0.4s linear 1.8s both;
+          }
+
+        }
+      }
+    }
+  }
+}
+
+
+
+/* NAV MENU ITEMS */
+nav {
+  ul {
+    list-style: none;
+    text-align: center;
+    @include display-flex();
+
+    li {
+      @include display-flex();
+      flex-direction: column;
+
+      a {
+        padding:18px 0;
+        @include font-pack($lh: 1 ,$size: 16px, $weight: 400, $colour: var(--black));
+        letter-spacing: .6px;
+        position: relative;
+        width: 100%;
+        text-align: left;
+        transition: all 0.4s ease-in-out;
+
+        &:hover {
+          color: var(--navy);
+          padding-left: 20px;
+        }
+      }
+    }
+  }
+
+  &-hamburger {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+  }
+}
+
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-150%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+
+.hamburger {
+
+  &-menu {
+    z-index: 10;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    @include display-flex();
+    flex-wrap: wrap;
+    align-items: center;
+
+    &.active {
+      height: 30px;
+      border: none;
+      padding: 0;
+      
+      & .menu-bar1,
+      & .menu-bar2,
+      & .menu-bar3 {
+        width: 100%;
+      }
+    
+    
+      & .menu-bar1 {
+        @include transform(rotate(-45deg) translate(-9px, 6px));
+      }
+    
+      & .menu-bar2 {
+        opacity: 0;
+      }
+
+      & .menu-bar3 {
+        @include transform(rotate(45deg) translate(-8px, -5px));
+      }
+    }
+  }
+
+}
+
+.menu {
+  &-bar1,
+  &-bar2,
+  &-bar3 {
+    width: 100%;
+    height: 2px;
+    background-color: var(--black);
+    margin: 2px auto;
+    @include transition(0.4s);
+  }
+
+  li {
+    position: relative;      
+    
+
+    &.h-lang {
+      cursor: pointer;
+
+      &.on_nav {
+        .nav-menu-sub {
+          display: block;
+        }
+      }
+
+      .nav-menu-sub {
+        @include max-responsive($mxtablet) {
+          left: 0;
+          right: unset;
+        }
+      }
+
+      .nav-w-icon {
+        color: var(--white);
+      }
+      .icon-globe{
+        width: 16px;
+        height: 16px;
+        display: inline-table;
+        background-image: url("data:image/svg+xml,%0A%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.99 0C4.47 0 0 4.48 0 10C0 15.52 4.47 20 9.99 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 9.99 0ZM16.92 6H13.97C13.657 4.76146 13.1936 3.5659 12.59 2.44C14.4141 3.068 15.9512 4.33172 16.92 6ZM10 2.04C10.83 3.24 11.48 4.57 11.91 6H8.09C8.52 4.57 9.17 3.24 10 2.04ZM2.26 12C2.1 11.36 2 10.69 2 10C2 9.31 2.1 8.64 2.26 8H5.64C5.56 8.66 5.5 9.32 5.5 10C5.5 10.68 5.56 11.34 5.64 12H2.26ZM3.08 14H6.03C6.35 15.25 6.81 16.45 7.41 17.56C5.58397 16.9354 4.04583 15.6708 3.08 14ZM6.03 6H3.08C4.04583 4.32918 5.58397 3.06457 7.41 2.44C6.80643 3.5659 6.34298 4.76146 6.03 6ZM10 17.96C9.17 16.76 8.52 15.43 8.09 14H11.91C11.48 15.43 10.83 16.76 10 17.96ZM12.34 12H7.66C7.57 11.34 7.5 10.68 7.5 10C7.5 9.32 7.57 8.65 7.66 8H12.34C12.43 8.65 12.5 9.32 12.5 10C12.5 10.68 12.43 11.34 12.34 12ZM12.59 17.56C13.19 16.45 13.65 15.25 13.97 14H16.92C15.9512 15.6683 14.4141 16.932 12.59 17.56ZM14.36 12C14.44 11.34 14.5 10.68 14.5 10C14.5 9.32 14.44 8.66 14.36 8H17.74C17.9 8.64 18 9.31 18 10C18 10.69 17.9 11.36 17.74 12H14.36Z' fill='%23000'/%3E%3C/svg%3E%0A");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        filter: invert(99%) sepia(36%) saturate(2%) hue-rotate(70deg) brightness(109%) contrast(100%);
+      }
+    }
+
+    a {
+      &.link-account {
+        // border: 1px solid var(--orange);
+        // background-color: var(--orange);
+        // border-radius: 30px;
+        // height: 50px;
+        // padding: 0 20px 0 50px;
+        color: var(--white);
+        @include display-flex();
+        align-items: center;
+        cursor: pointer;
+        padding-left: 30px;
+
+        @include max-responsive($mntablet) {
+          height: 40px;
+          font-size: 14px;
+
+        }
+        
+        &::before {
+          position: absolute;
+          content: '';
+          width: 20px;
+          height: 20px;
+          background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 17.3571C18 17.5276 17.9323 17.6912 17.8117 17.8117C17.6912 17.9323 17.5276 18 17.3571 18H0.642857C0.472386 18 0.308799 17.9323 0.188265 17.8117C0.0677314 17.6912 0 17.5276 0 17.3571C0 14.9702 0.948196 12.6812 2.63601 10.9932C4.32393 9.30545 6.61327 8.35722 8.99993 8.35722C11.3866 8.35722 13.6759 9.30541 15.3638 10.9932C17.0516 12.6811 17.9999 14.9705 17.9999 17.3571H18ZM9 7.71429C10.023 7.71429 11.0041 7.30793 11.7274 6.58455C12.4507 5.86117 12.8571 4.88013 12.8571 3.85714C12.8571 2.83416 12.4508 1.85308 11.7274 1.12974C11.004 0.406396 10.023 0 9 0C7.97701 0 6.99594 0.406359 6.2726 1.12974C5.54925 1.85312 5.14286 2.83416 5.14286 3.85714C5.14286 4.88013 5.54922 5.8612 6.2726 6.58455C6.99598 7.30789 7.97701 7.71429 9 7.71429Z' fill='%23FAFAFC'/%3E%3C/svg%3E%0A");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+          left: 0;
+        }
+      }
+    }
+  }
+
+  .current_page_item {
+    a {
+      font-weight: 500;
+    }
+  }
+}
+
+.sc {
+  .overlay-slide-left {
+    padding: 13px 0 38px;
+  }
+}

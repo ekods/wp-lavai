@@ -1,0 +1,56 @@
+#backtop {
+	display: inline-block;
+	width: 85px;
+	text-align: center;
+	position: fixed;
+	bottom: 100px;
+	left: 20px;
+	transition: background-color .3s, opacity .5s, visibility .5s;
+	opacity: 0;
+	visibility: hidden;
+	z-index: 1var(--black);
+	font-size: 13px;
+
+	&.show {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	span {
+		margin-top: 10px;
+		position: relative;
+		display: inline-table;
+	}
+
+	.backtop {
+
+		&Arrow {
+			border: 1px solid var(--black);
+			border-radius: 100%;
+			width: 38px;
+			height: 38px;
+			position: relative;
+			margin: 0 auto;
+		
+			&::after {
+				background-image: url('../images/all/arrow.png');
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: 24px;
+				transform: rotate(90deg);
+				position: absolute;
+				content: '';
+				width: 24px;
+				height: 24px;
+				top: 6px;
+				left: 0;
+				right: 0;
+				margin: auto;
+			}
+		}
+
+	}
+
+}
+
+

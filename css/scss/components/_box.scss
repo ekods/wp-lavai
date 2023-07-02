@@ -1,0 +1,81 @@
+.box {
+  &Wrap {
+
+
+  }
+
+  &Nav {
+    @include display-flex();
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    color: var(--black);
+    // max-width: 1280px;
+    margin: 0 auto;
+
+    @include max-responsive(767px) {
+      flex-direction: column;
+    }
+
+    &-link {
+      text-decoration: underline;
+      color: #434343;
+      letter-spacing: 2px;
+    }
+
+    &-col {
+      width: 100%;
+      &:first-child {
+        max-width: 385px;
+      }
+
+      &:last-child {
+        max-width: 250px;
+      }
+
+      @include max-responsive($mdtablet) {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      &.brandLogo {
+        width: 100%;
+        max-width: 200px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+
+        @include max-responsive($mdtablet) {
+          position: relative;
+        }
+      }
+
+      .btn {
+        max-width: 230px;
+        margin: 10px auto;
+        font-size: 14px;
+        height: 42px;
+        line-height: 36px;
+        @include max-responsive($mdtablet) {
+          max-width: 150px;
+        }
+      }
+    }
+
+    &-content {
+      text-align: center;
+      p {
+        @include font-pack($size: 18px);
+        margin-bottom: 20px;
+        white-space: pre-wrap;
+        line-height: 1.8;
+      }
+
+      h3 {
+        @include font-pack($family: $CanelaTextTrial ,$size: 14px, $weight: 400, $lh: 1.4);
+      }
+    }
+
+  }
+}

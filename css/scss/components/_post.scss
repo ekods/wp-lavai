@@ -1,0 +1,258 @@
+.post {
+
+  &Article {
+    &-item {
+      height: 100%;
+      min-height: 210px;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 18px;
+      background-color: #f5f4ef;
+
+      &:hover {
+        background-color: rgba($color: #374D6C, $alpha: .3);
+
+        .thumb-sq {
+          img {
+            transform: scale(1.08);
+          }
+        }
+    
+      }
+
+      &_link {
+        @include font-pack($size: 14px, $weight: 400 ,$colour: var(--blue));
+        position: relative;
+        padding-right: 48px;
+
+        &::after {
+          background-image: url("data:image/svg+xml,%3Csvg width='25' height='24' viewBox='0 0 25 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.0142 17L11.1235 16.125L14.6235 12.625H7.01416V11.375H14.6235L11.1235 7.875L12.0142 7L17.0142 12L12.0142 17Z' fill='%230D54B5'/%3E%3Crect x='0.51416' y='0.5' width='23' height='23' rx='11.5' stroke='%230D54B5'/%3E%3C/svg%3E%0A");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: auto 24px;
+          position: absolute;
+          content: '';
+          width: 25px;
+          height: 25px;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+        }
+      }
+
+      &_author,
+      &_date {
+        width: 100px;
+        display: flex;
+        flex-direction: column;
+        @include font-pack($size: 12px);
+      }
+
+      &_author {
+        text-align: right;
+      }
+
+      &_thumb {
+        width: 100%;
+
+        .thumb-sq {
+          padding-top: 76%;
+          background-color: transparent;
+
+          img {
+            object-fit: contain;
+          }
+        }
+      }
+
+      &_bottom {
+        @include flexbox();
+        justify-content: space-between;
+      }
+
+      &_content {
+        width: 100%;
+        flex: auto;
+        padding: 15px;
+
+
+        h5 {
+          @include font-pack($family: $CanelaTextTrial, $size: 18px);
+          height: 52px;
+          margin-bottom: 18px;
+          position: relative;
+          -webkit-line-clamp: 2;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+
+          @media (max-width: $mxtablet) {
+            @include font-pack($size: 14px);
+          }
+        }
+      }
+    }
+
+    &-wrap {
+      padding: 0 0 48px 0;
+    }
+
+    &-list {
+      --gap: 40px;
+      @include display-flex();
+      gap: var(--gap);
+      flex-wrap: wrap;
+
+      .postArticle-item {
+        background-color: #f5f4ef;
+        width: calc(100% / 3 - var(--gap) + (var(--gap) / 3));
+
+        @include max-responsive($mxtablet) {
+          width: calc(100% / 2 - var(--gap) + (var(--gap) / 2));
+        }
+
+        @include max-responsive($mntablet) {
+          width: 100%;
+        }
+
+        &:hover {
+          background-color: rgba(55,77,108,.3);
+        }
+
+        h5 {
+          @include max-responsive($mntablet) {
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+
+  &Single {
+    @include display-flex();
+    flex-wrap: wrap;
+
+    &-main {
+      width: 100%;
+      margin-bottom: 100px;
+    }
+
+    &-related {
+      width: 100%;
+
+      @media (max-width: $mxtablet) {
+        max-width: 300px;
+        padding-left: 20px;
+      }
+
+      @media (max-width: $mntablet) {
+        max-width: 100%;
+        width: 100%;
+        padding-left: 0;
+        border-left: 0;
+      }
+    }
+
+  }
+
+
+  &List {
+    &-side {
+      position: relative;
+
+      @media (max-width: $mntablet) {
+        padding-bottom: 30px;
+      }
+
+      .swiper-acc {
+        display: none;
+
+        @media (max-width: $mntablet) {
+          display: block;
+        }
+      }
+
+      .postItem-thumb {
+        @media (max-width: $mntablet) {
+          width: 100%;
+          max-width: 100%;
+        }
+      }
+
+      .postItem-detail {
+        @media (max-width: $mntablet) {
+          width: 100%;
+        }
+      }
+      .postItem-inner {
+        @media (max-width: $mntablet) {
+          flex-direction: column;
+        }
+      }
+    }
+  }
+
+  &Item {
+    &-inner {
+      @include display-flex();
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    &-thumb {
+      width: 127px;
+      .thumb-sq {
+        padding-top: 67%;
+      }
+
+      @media (max-width: $mxtablet) {
+        max-width: 100px;
+      }
+    }
+
+    &-detail {
+      width: calc(100% - 127px - 14px);
+
+      @media (max-width: $mxtablet) {
+        width: calc(100% - 100 - 14px);
+      }
+
+      p {
+        margin: 5px 0;
+        position: relative;
+        -webkit-line-clamp: 4;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      &_date {
+        @include font-pack($size: 12px, $weight: 800 ,$colour: var(--blue));
+      }
+
+      &_link {
+        @include font-pack($size: 14px, $weight: 400 ,$colour: var(--blue));
+        position: relative;
+        padding-right: 48px;
+  
+        &::after {
+          background-image: url("data:image/svg+xml,%3Csvg width='25' height='24' viewBox='0 0 25 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.0142 17L11.1235 16.125L14.6235 12.625H7.01416V11.375H14.6235L11.1235 7.875L12.0142 7L17.0142 12L12.0142 17Z' fill='%230D54B5'/%3E%3Crect x='0.51416' y='0.5' width='23' height='23' rx='11.5' stroke='%230D54B5'/%3E%3C/svg%3E%0A");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: auto 24px;
+          position: absolute;
+          content: '';
+          width: 25px;
+          height: 25px;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+        }
+      } 
+    }
+  }
+
+}

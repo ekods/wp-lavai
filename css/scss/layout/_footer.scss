@@ -1,0 +1,102 @@
+.footer {
+  background-color: var(--cream);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: cover;
+  position: relative;
+  width: 100%;
+
+  &Wrapper {
+    width: 100%;
+    padding: 50px 34px;
+    @include flexbox();
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    position: relative;
+
+    @media (max-width: $mxtablet) {
+      padding: 50px 15px;
+    }
+    @include max-responsive($mstablet) {
+      padding: 30px 8px;
+    }
+  }
+
+  &Main {
+    padding: 50px 0;
+
+    @include max-responsive($mstablet) {
+      padding: 20px 0;
+    }
+  }
+
+  &Box {
+    background-color: rgba($color: #fff, $alpha: .6);
+    padding: 60px;
+    @include flexbox();
+    flex-wrap: wrap;
+    gap: 10px;
+
+    @include max-responsive($msdesktop) {
+      padding: 60px 30px;
+    }
+    @include max-responsive($grid_desktop) {
+      padding: 30px 15px;
+    }
+    
+  }
+
+  &Bottom {
+    background-color: var(--white);
+    padding: 15px 0;
+
+    &-inner {
+      @include flexbox();
+      justify-content: space-between;
+      align-items: center;
+  
+      @include max-responsive(767px) {
+        flex-direction: column;
+      }
+    }
+  }
+
+  &Copyright {
+    padding: 15px 0;
+    text-align: left;
+    @include font-pack($family: $CanelaTextTrial, $lh: 1 ,$size: 16px, $colour: var(--black));
+    display: inline-table;
+    @include max-responsive(767px) {
+      text-align: center;
+    }
+
+    @media (max-width: $mntablet) {
+      font-size: 14px;
+    }
+  }
+
+
+  &Sosmed {
+    padding: 15px 0;
+    ul {
+      @include flexbox();
+      align-items: center;
+      gap: 10px;
+
+      li {
+        a {
+          border: 1px solid var(--black);
+          border-radius: 100%;
+          padding: 10px;
+          width: 40px;
+          height: 40px;
+          @include flexbox();
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+}

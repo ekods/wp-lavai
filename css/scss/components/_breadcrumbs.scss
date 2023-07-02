@@ -1,0 +1,21 @@
+.breadcrumbs {
+  @include display-flex();
+  gap: 8px;
+  margin-bottom: 20px;
+
+  li {
+    @include font-pack($lh: 1.2, $size: 14px, $weight: $font-weight-regular, $colour: var(--blue));
+
+    a {
+      color: var(--blue-soft);
+    }
+  }
+}
+
+.item-current {
+  position: relative;
+  -webkit-line-clamp: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

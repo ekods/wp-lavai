@@ -1,0 +1,63 @@
+.share {
+  &Title {
+    @include font-pack($colour: var(--primary), $lh: 1.2 ,$size: 14px, $weight: 800);
+  }
+
+  &Container {
+    @include display-flex();
+    gap: 10px;
+    margin-top: 10px;
+    .share {
+      &-icon {
+        @include display-flex();
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        background: #fff;
+        font-size: 14px;
+        transition: all 100ms linear;
+
+        &:hover {
+          color: var(--blue-dark);
+          border-color: transparent;
+        }
+        &:before {
+          font-family: Font Awesome\ 5 Brands;
+        }
+        &-digg:before {
+            content: "\f1a6";
+        }
+        &-rss:before {
+            content: "\f09e";
+        }
+        &-facebook:before  {
+            content: "\f39e";
+        }
+        &-twitter:before {
+            content: "\f099";
+        }
+        &-tumblr:before {
+           content: "\f173";
+        }
+        &-linkedin:before {
+             content: "\f0e1";
+        }
+        &-pinterest:before {
+            content: "\f231";
+        }
+        &-stumbleupon:before {
+            content: "\f1a4";
+        }
+        &-whatsapp:before {
+            content: "\f232";
+        }
+        &-email:before {
+          content: "\f0e0";
+          font-family: "Font Awesome 6 Pro";
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,150 @@
+
+.introloader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: var(--white);
+	z-index: 999999;
+}
+
+
+.e-loader {
+	/* sizes */
+	--circle-size: 150px;
+	--letter-size: 70px;
+	--gap: -30px;
+
+	/* colors */
+	--background-color: var(--blue);
+	--circle-color: rgba(255, 255, 255, 0.9);
+	--letter-color: 213, 218, 223; /* Has to be RGB values */
+
+	/* calculations */
+	--offset: calc(0.5 * var(--gap));
+	--radius: calc(var(--circle-size) / 2);
+	--line-height: calc(0.2 * var(--letter-size));
+	--line-width: calc(0.6 * var(--letter-size));
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 9999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+
+.e-loader::after {
+	content: attr(data-text);
+	display: block;
+	position: absolute;
+	top: calc(50% + var(--radius) + var(--offset));
+  @include font-pack($lh: 1 ,$size: 32px, $colour: var(--white));
+	letter-spacing: 3px;
+  text-align: center;
+
+	@include max-responsive($mstablet) {
+		@include font-pack($size: 18px);
+	}
+}
+
+// .e-loader::after,
+// .e-loader > div,
+// .e-loader > div::before,
+// .e-loader > div::after {
+// 	animation: loading-bar 1.8s linear infinite;
+// }
+
+.loader {
+	width: 100%;
+	text-align: center;
+
+	&Load {
+		svg {
+			width: 100%;
+			max-width: 584px;
+		}
+	}
+
+}
+
+
+.loaderLoad {
+	width: 300px;
+	height: 300px;
+	display: flex;
+	position: relative;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+
+	img {
+		position: relative;
+    margin: 0 auto;
+		width: 100%;
+		max-width: 110px;
+	}
+}
+
+.spin {
+	width: 150px;
+	height: 150px;
+	top: 25%;
+	left: 25%;
+	border: 3px solid transparent;
+	border-radius: 50%;
+	border-top-color: var(--black);
+	position: absolute;
+	animation: spin 1500ms infinite linear;
+
+	&::before {
+		top: 3px;
+		left: 3px;
+		right: 3px;
+		bottom: 3px;
+		border: 3px solid transparent;
+		border-top-color: var(--black);
+		animation: antispin 700ms infinite linear;
+		content: "";
+		position: absolute;
+		border-radius: 60%;
+	}
+}
+
+@keyframes spin { 
+	100% {transform:rotate(360deg);} 
+}
+@keyframes antispin {
+	from {transform: rotate}
+	to {transform: rotate(-360deg);}
+	}
+
+
+@keyframes loading-bar {
+	0%,
+	100% {
+		opacity: 0.1;
+	}
+
+	30% {
+		opacity: 0.3;
+	}
+
+	50% {
+		opacity: 0.6;
+	}
+
+	70% {
+		opacity: 0.9;
+	}
+
+	90% {
+		opacity: 1;
+	}
+}

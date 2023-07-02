@@ -1,0 +1,43 @@
+.page-link {
+  color: var(--orange);
+}
+
+.single-post,
+.single-professionals {
+  .header {
+    &Main {
+      position: relative;
+    }
+
+    &Inner {
+      &::before {
+        opacity: 1;
+      }
+  
+      &.scrolled {
+        animation: bounceInDown 2s;
+      }
+    }
+  }
+
+
+
+  .professionals {
+    &Item {
+      &-img {
+        img {
+          filter: none;
+        }
+
+        &::before {
+          background-color: var(--grey);
+        }
+
+        &::after {
+          background-color: transparent;
+          mix-blend-mode: unset;
+        }
+      }
+    }
+  }
+}

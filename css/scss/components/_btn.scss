@@ -1,0 +1,25 @@
+.btn {
+  padding: 7px 23px;
+  @include font-pack($colour: var(--white), $lh: 46px ,$size: 16px);
+  position: relative;
+  cursor: pointer;
+  text-decoration: none;
+  height: 50px;
+  border: 1px solid var(--black);
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  transition: none;
+  background-color: var(--black);
+
+  &:hover {
+    background-color:  var(--white);
+    color: var(--black);
+  }
+
+  &-auto {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
