@@ -147,7 +147,7 @@
       li {
         a {
           padding: 5px 0;
-          @include font-pack($family: $CanelaTextTrial, $size: 16px, $colour: #5c5b59);
+          @include font-pack($family: $CanelaTextTrial, $size: 16px, $colour: #5c5b59, $weight: 300);
         }
       }
     }

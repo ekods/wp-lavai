@@ -17,8 +17,6 @@ get_header(); ?>
                 <?php } ?>
                 </div>
                 <div class="pageContact-col">
-                    
-                    <h2 class="pageTitle mb-20"><?= the_title(); ?></h2>
 
                     <div class="content-body">
                         <?= the_content(); ?>

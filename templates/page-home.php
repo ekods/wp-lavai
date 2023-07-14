@@ -41,13 +41,13 @@ get_header(); ?>
             </div>
             <?php endforeach; endif; ?>
 
-            <!-- <div class="swiper-acc">
+            <div class="swiper-acc">
                 <div class="swiper-nav">
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
                 </div>
                 <div class="swiper-pagination"></div>
-            </div> -->
+            </div>
         </div>
     </section>
 

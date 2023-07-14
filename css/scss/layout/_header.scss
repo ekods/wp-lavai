@@ -42,8 +42,8 @@
     }
 
     .brandLogo {
-      height: 63px;
-      width: 200px;
+      height: 55px;
+      width: 165px;
 
       @include max-responsive(1200px) {
         height: 45px;
@@ -227,7 +227,7 @@
     margin-right: 0;
     padding: 0;
 
-    @include font-pack($size: 16px, $weight: 400, $colour: var(--black), $lh: 32px);
+    @include font-pack($family:'BasicCommercialLT' ,$size: 15px, $weight: 400, $colour: var(--black), $lh: 32px);
     text-transform: uppercase;
 
     @include max-responsive(1200px) {
@@ -407,7 +407,7 @@
         a {
           font-weight: 300 !important;
           text-transform: initial;
-          display: inline-table;
+          display: inline-flex;
         }
       }
 

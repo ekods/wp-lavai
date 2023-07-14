@@ -197,20 +197,20 @@
         }
 
         p {
-          @include font-pack($size: 14px, $lh:1.8);
+          @include font-pack($size: 18px, $lh:1.8);
 
           @media (max-width: $mntablet) {
-            font-size: 12px;
+            font-size: 16px;
           }
         }
       }
 
       &Body {
         width: 100%;
-        @include font-pack($family: $CanelaTextTrial, $size: 16px, $lh:1.8, $colour: #606060);
+        @include font-pack($family: $CanelaTextTrial, $size: 16px, $lh:1.8, $colour: #606060, $weight: 300);
 
         p {
-          @include font-pack($size: 16px, $lh:1.8);
+          @include font-pack($size: 16px, $lh:1.8, $weight: 300);
 
           @media (max-width: $mntablet) {
             font-size: 14px;
@@ -284,10 +284,14 @@
     padding: 100px 0;
     position: relative;
 
+    .pageTitle {
+      font-size: 46px;
+    }
+
 
     .content-body {
       h3 {
-        @include font-pack($family: $CanelaTextTrial ,$size: 20px, $weight: 300);
+        @include font-pack($family: $CanelaTextTrial ,$size: 18px, $weight: 300);
         margin: 10px 0;
 
         @media (max-width: $mntablet) {
